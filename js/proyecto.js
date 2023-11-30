@@ -21,7 +21,7 @@ window.addEventListener('hashchange',()=>{
 			<div class="row row-cols-1 row-cols-md-3 g-4 materiasContainer" id='cardsContainer'></div>`);
 		
 		//EN ESTE JSON SE ENCUENTRA INFORMACION SOBRE LAS MATERIAS (Nombre,foto,alt) PARA RELLENAR LAS CARDS
-		const URLGET = "../data/materias.json";
+		const URLGET = "/data/materias.json";
 		//IMPRIMIMOS LAS CARDS QUE NOS MOSTRARAN LAS MATERIAS DE LA ESCUELA.
 		$(document).ready(() => { 
 			$.get(URLGET, function (respuesta, estado) {
@@ -48,7 +48,7 @@ window.addEventListener('hashchange',()=>{
 					  </div>
 					  <div class="row row-cols-1 row-cols-md-3 g-4 profesoresContainer" id='cardsContainer'></div>`)
 		//AQUÍ ENCONTRAMOS INFORMACION PARA RELLENAR LAS CARDS DE LOS PROFESORES
-		const URLGET = "../data/profesores.json";
+		const URLGET = "/data/profesores.json";
 		//IMPRIMIMOS LA INFORMACION EN FORMATO DE CARD
 		$(document).ready(() => { 
 			$.get(URLGET, function (respuesta, estado) {
@@ -76,7 +76,7 @@ window.addEventListener('hashchange',()=>{
 				  });
 	}else if(location.hash === "#/pages/info.html"){
 		//ACA MOSTRAMOS LA INFO DE CURSADA
-		let imagenPersonal = "../multimedia/fotoPersonal.jpg";
+		let imagenPersonal = "/multimedia/fotoPersonal.jpg";
 		app.html(`<div class="h1container">
 					<h1 class='materiasH1 ${lightOnOff()}'>Datos Personales</h1>
 	  			  </div>
