@@ -77,38 +77,27 @@ window.addEventListener('hashchange',()=>{
 	}
 })
 
+
+if($('.upsPic').hasClass('light')){
+        
+}
 //Lista que usaremos para almacenar a los alumnos
 let listaAlumnos = [];
 
 //PAGINA 'ALUMNOS' (MAIN PAGE)
+let upsPicLightMode = "./multimedia/disconnected.png";
+let upsPicDarkMode = "./multimedia/disconnected-dark.png";
+let upsPicUrl = $('body').hasClass('light') ? upsPicLightMode : upsPicDarkMode;
 
 // 1.3. IMPRIMIMOS LO QUE TENEMOS GUARDADO EN EL LOCALSTORAGE (OBJETIVO: IMPRIMIR EL REGISTRO DE ALUMNOS EN PANTALLA)
 if (localStorage.getItem("listaAlumnos") === null){
 	//SI NO HAY NADA GUARDADO, CARGAMOS USUARIOS POR DEFECTO PARA QUE POR LO MENOS SE VEA ALGO EN PANTALLA.
-	$(document).ready(function(){
-		$.getJSON("../data/users.json",function(respuesta, estado){
-			if(estado === 'success'){
-				let users = respuesta;
-				for (const user of users){
-					if (user.promedioFinal >= 7){
-						$('.registroAlumnos').append(`<div>
-														<div class='main'>
-															<p class='previewUser'>${user.name} ${user.lastName}</p>
-															<p class='previewResult'>aprobo con un promedio de ${user.promedioFinal}</p>
-														</div><br>
-													</div>`);
-					}else{
-						$('.registroAlumnos').append(`<div>
-														<div class='main'>
-															<p class='previewUser'>${user.name} ${user.lastName}</p>
-															<p class='previewResult'>desaprobo con un promedio de ${user.promedioFinal}</p>
-														</div><br>
-													</div>`);
-					}
-				}
-			}
-		})
-	});
+	$('.registroAlumnos').append(`<div>
+												<div class='ups'>
+													<img src="${upsPicUrl}" class="upsPic"/>
+													<p class='errorMsg'>¡Oops! No se encuentran alumnos registrados aún.</p>						
+												</div>
+											</div>`);
 }else{
 	//SI EL LOCALSTORAGE TIENE KEYS (ALUMNOS) GUARDADAS, LAS MOSTRAMOS EN PANTALLA
 		let student = localStorage.getItem('listaAlumnos');

@@ -111,6 +111,7 @@ const almacenarValores = () =>{
         }
         //Por ultimo, el modal se elimina, para poder volver a la pagina principal y ver los resultados.
         deleteModal();
+        $('.ups').remove();
         notaFinal = 0;
     }
 }
@@ -150,9 +151,21 @@ const addDeleteClass = ()=>{
             $('.deleteStudent').remove();
             $('.Eliminar-Button').text('Eliminar registro')
             $('header').show();
+
         }
     }else{
         $('.Eliminar-Button').text('Eliminar registro')
         $('header').show();
-    }
+        if ($('.ups').length <= 0) {
+            let upsPicLightMode = "./multimedia/disconnected.png";
+            let upsPicDarkMode = "./multimedia/disconnected-dark.png";
+            $('.registroAlumnos').append(`<div>
+                                            <div class='ups'>
+                                                <img src="${$('body').hasClass('light') ? upsPicLightMode : upsPicDarkMode}" class="upsPic"/>
+                                                <p class='errorMsg'>¡Oops! No se encuentran alumnos registrados aún.</p>						
+                                            </div>
+                                        </div>`);
+        }     
+    } 
+       
 }

@@ -146,6 +146,7 @@ main h1{
 	margin: 15px;
 	margin-top: 0;
 	border-radius: 5px;
+	user-select: none;
 	
 }
 main h1.light{
@@ -169,6 +170,24 @@ main h1.light{
 .previewUser{
 	margin-bottom:5px;
 	font-weight: bold;
+}
+.ups{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+}
+.ups img{
+	max-width: 500px;
+	margin-top: 50px;
+}
+.ups p{
+	color: var(--secondaryColor);
+	font-size:1.5em;
+	margin-top: 40px;
+	display: flex;
+	text-align: center;
 }
 /* GRUPO DE BOTONES QUE SE VEN EN LA PAGINA PRINCIPAL */
 .buttonGroup{
@@ -223,6 +242,7 @@ main h1.light{
 }
 .registroLink:hover{
 	text-decoration: underline;
+	color: var(--secondaryColor);
 }
 
 /* MODAL */
