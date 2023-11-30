@@ -15,6 +15,7 @@ $('.switch').click(()=>{
     $('.nav-link').toggleClass('light');
     $('.card').toggleClass('light');
     $('.modal').toggleClass('light');
+    $('.infoContainerparagraph').toggleClass('light');
     
     localStorage.setItem('luz','true');
 

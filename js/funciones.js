@@ -156,6 +156,7 @@ const addDeleteClass = ()=>{
     }else{
         $('.Eliminar-Button').text('Eliminar registro')
         $('header').show();
+        //Arregla un bug que generaba la imagen de ups por cada vez que se clickeaba eliminar registro.
         if ($('.ups').length <= 0) {
             let upsPicLightMode = "./multimedia/disconnected.png";
             let upsPicDarkMode = "./multimedia/disconnected-dark.png";
@@ -169,3 +170,50 @@ const addDeleteClass = ()=>{
     } 
        
 }
+        //4.7 Funcion que crea la pagina de las Materias dinamicamente.
+
+        const subjectInfo = (nombre, descripcion, profesor, horario, imagen, altImagen)=>{
+            
+                //cambia el hash con el nombre de la materia
+                var hash = `#nombre=${encodeURIComponent(nombre)}&descripcion=${encodeURIComponent(descripcion)}`;
+                window.location.hash = hash;
+                //llevamos el scroll de la pagina arriba de todo
+                window.scrollTo(0, 0);
+                //crea el contenido dinamico de la pagina dependiendo de la card clicekada
+                $('.app').empty();
+                $('.app').append(`<div class="h1container">
+				                    <h1 class='materiasH1 ${lightOnOff()}'>${nombre}</h1>
+			                      </div>
+                                  <div class='infoContainer'>
+                                    <img class="infoImagen" src="${imagen}" alt="${altImagen}">
+                                    <h2>${descripcion}</h2>
+                                    <p class="infoContainerparagraph ${lightOnOff()}"><strong>Profesor:</strong> ${profesor}</p>
+                                    <p class="infoContainerparagraph ${lightOnOff()}"><strong>Horarios:</strong> ${horario}</p>
+                                  </div>
+                                `);
+        }
+
+         //4.8 Funcion que crea la pagina de los profesores dinamicamente.
+
+         const teachersInfo = (nombre, materia, horario, imagen, edad, contacto)=>{
+            
+            //cambia el hash con el nombre de la materia
+            var hash = `#nombre=${encodeURIComponent(nombre)}&descripcion=${encodeURIComponent(materia)}`;
+            window.location.hash = hash;
+            //llevamos el scroll de la pagina arriba de todo
+            window.scrollTo(0, 0);
+            //crea el contenido dinamico de la pagina dependiendo de la card clicekada
+            $('.app').empty();
+            $('.app').append(`<div class="h1container">
+                                <h1 class='materiasH1 ${lightOnOff()}'>${materia}</h1>
+                              </div>
+                              <div class='infoContainer'>
+                                <img class="infoImagen" src="${imagen}" alt="Profesor de la Escuela">
+                                <h2>${nombre}</h2>
+                                <p class="infoContainerparagraph ${lightOnOff()}"><strong>Edad:</strong> ${edad}</p>
+                                <p class="infoContainerparagraph ${lightOnOff()}"><strong>Horarios:</strong> ${horario}</p>
+                                <p class="infoContainerparagraph ${lightOnOff()}"><strong>Contacto:</strong> ${contacto}</p>
+
+                              </div>
+                            `);
+    }

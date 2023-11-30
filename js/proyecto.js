@@ -15,7 +15,7 @@ window.addEventListener('hashchange',()=>{
 		//1.1 ESTA ES LA SECCION EN LA QUE SE MUESTRA LA LISTA DE MATERIAS DE LA ESCUELA
 			app.html(`
 			<div class="h1container">
-				<h1 class='materiasH1 ${lightOnOff()}'>Materias</h1>
+				<h1 class='materiasH1 ${lightOnOff()}'>MATERIAS REGISTRADAS EN LA ESCUELA</h1>
 			</div>
 			<!-- CARDS DE LAS MATERIAS -->
 			<div class="row row-cols-1 row-cols-md-3 g-4 materiasContainer" id='cardsContainer'></div>`);
@@ -29,7 +29,7 @@ window.addEventListener('hashchange',()=>{
 					let misDatos = respuesta;
 					for (const dato of misDatos) {
 							$(".materiasContainer").prepend(`<div class="col">
-							<div class="card ${lightOnOff()} h-100">
+							<div class="card ${lightOnOff()} h-100" onclick='subjectInfo("${dato.materia}","${dato.descripcion}","${dato.profesor}","${dato.horario}", "${dato.imagen}","${dato.alt}")'>
 								<img src="${dato.imagen}" class="card-img-top" alt="${dato.alt}">
 								<div class="card-body">
 									<h5 class="card-title">${dato.materia}</h5>
@@ -58,8 +58,8 @@ window.addEventListener('hashchange',()=>{
 					
 						$(".profesoresContainer").prepend(`
 						<div class="col">
-							  <div class="card ${lightOnOff()} h-100">
-								<img src="${dato.fotoUrl}" class="card-img-top" alt="...">
+							  <div class="card ${lightOnOff()} h-100" onclick='teachersInfo("${dato.nombre}","${dato.materia}","${dato.horario}","${dato.fotoUrl}","${dato.edad}","${dato.contact}")'>
+								<img src="${dato.fotoUrl}" class="card-img-top" alt="Foto de Profesor de Escuela">
 								<div class="card-body">
 									  <h5 class="card-title">${dato.nombre}</h5>
 									  <p class="card-text">${dato.materia}</p>
@@ -74,6 +74,21 @@ window.addEventListener('hashchange',()=>{
 						  }
 					  });
 				  });
+	}else if(location.hash === "#/pages/info.html"){
+		//ACA MOSTRAMOS LA INFO DE CURSADA
+		let imagenPersonal = "../multimedia/fotoPersonal.jpg";
+		app.html(`<div class="h1container">
+					<h1 class='materiasH1 ${lightOnOff()}'>Datos Personales</h1>
+	  			  </div>
+					<div class='infoContainer'>
+					<img class="infoImagen" src="${imagenPersonal}" alt="Alumna">
+					<h2>Ludmila Landry</h2>
+					<p class="infoContainerparagraph ${lightOnOff()}"><strong>Carrera:</strong> Diseño Multimedia</p>
+					<p class="infoContainerparagraph ${lightOnOff()}"><strong>Comisión:</strong> M2035</p>
+					<p class="infoContainerparagraph ${lightOnOff()}"><strong>Materia:</strong> Diseño y Programación Web I</p>
+					<p class="infoContainerparagraph ${lightOnOff()}"><strong>Turno:</strong> Noche</p>
+
+				  </div>`)
 	}
 })
 
@@ -94,7 +109,7 @@ if (localStorage.getItem("listaAlumnos") === null){
 	//SI NO HAY NADA GUARDADO, CARGAMOS USUARIOS POR DEFECTO PARA QUE POR LO MENOS SE VEA ALGO EN PANTALLA.
 	$('.registroAlumnos').append(`<div>
 												<div class='ups'>
-													<img src="${upsPicUrl}" class="upsPic"/>
+													<img src="${upsPicUrl}" class="upsPic" alt='Foto de Error que señala que no se han registrado entradas aún'/>
 													<p class='errorMsg'>¡Oops! No se encuentran alumnos registrados aún.</p>						
 												</div>
 											</div>`);
