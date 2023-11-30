@@ -184,7 +184,7 @@ main h1.light{
 	max-width: 500px;
 	margin-top: 50px;
 	-webkit-user-drag: none; /* Safari */
-	user-drag: none;
+	
 }
 .ups p{
 	color: var(--secondaryColor);
@@ -563,7 +563,7 @@ main h1.light{
 		max-width: 300px;
 		margin-top: 50px;
 		-webkit-user-drag: none; /* Safari */
-		user-drag: none;
+		
 	}
 	.ups p{
 		color: var(--secondaryColor);
