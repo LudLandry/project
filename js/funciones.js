@@ -115,14 +115,14 @@ const almacenarValores = () =>{
         notaFinal = 0;
     }
 }
-        //4.6 Función que le da funcionalidad al boton 'Eliminar registro'.
+        //4.6 Función que le da utilidad al boton 'Eliminar registro'. Eliminamos del DOM el html creado por el modal y eliminamos ese alumno del LocalStorage tambien.
 const addDeleteClass = ()=>{
     if($('.main').length){
         if(!$('.main').hasClass('selectedCard')){
             $('header').hide();
             $('.main').addClass('selectedCard');
             $('.main').append(`<button type="button" class="deleteStudent">Eliminar</button>`)
-            $('.Eliminar-Button').text('Cancelar');
+            $('.Eliminar-Button').text('Terminar');
             $('.deleteStudent').on('click',function(e){
                 let deleteStudentParent = $(e.target).parent();
                 let card = deleteStudentParent.parent();

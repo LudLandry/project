@@ -3,5 +3,5 @@
 let notaFinal = 0;
 //3.2 cantidad de materias en la escuela, se va a utilizar en el calculo del promedio final del alumno.
 let materias = ['Matematica','Biologia','Quimica','Fisica','Historia','Geografia'];
-//3.3 la variable 'filledInput' se utiliza para contar los inputs que no estan vacios.
+//3.3 la variable 'filledInput' se utiliza para contar los inputs que no estan vacios en el modal.
 let filledInput = 0;

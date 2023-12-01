@@ -24,7 +24,6 @@ window.addEventListener('hashchange',()=>{
 		
 		//IMPRIMIMOS LAS CARDS QUE NOS MOSTRARAN LAS MATERIAS DE LA ESCUELA.
 		$(document).ready(() => {
-			// Suponiendo que 'materias' contiene la lista de objetos
 			for (const materia of materiasinfo) {
 				$(".materiasContainer").prepend(`
 					<div class="col">
@@ -67,7 +66,7 @@ window.addEventListener('hashchange',()=>{
 			}
 		});
 	}else if(location.hash === "#/pages/info.html"){
-		//ACA MOSTRAMOS LA INFO DE CURSADA
+		//ACA MOSTRAMOS MI INFORMACION
 		let imagenPersonal = "multimedia/fotoPersonal.jpg";
 		app.html(`<div class="h1container">
 					<h1 class='materiasH1 ${lightOnOff()}'>Datos Personales</h1>
@@ -98,7 +97,7 @@ let upsPicUrl = $('body').hasClass('light') ? upsPicLightMode : upsPicDarkMode;
 
 // 1.3. IMPRIMIMOS LO QUE TENEMOS GUARDADO EN EL LOCALSTORAGE (OBJETIVO: IMPRIMIR EL REGISTRO DE ALUMNOS EN PANTALLA)
 if (localStorage.getItem("listaAlumnos") === null){
-	//SI NO HAY NADA GUARDADO, CARGAMOS USUARIOS POR DEFECTO PARA QUE POR LO MENOS SE VEA ALGO EN PANTALLA.
+	//SI NO HAY NADA GUARDADO, CARGAMOS UN MENSAJE PARA QUE POR LO MENOS SE VEA ALGO EN PANTALLA.
 	$('.registroAlumnos').append(`<div>
 												<div class='ups'>
 													<img src="${upsPicUrl}" class="upsPic" alt='Foto de Error que señala que no se han registrado entradas aún'/>
