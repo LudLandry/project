@@ -1,4 +1,4 @@
-let materias = [
+let materiasinfo = [
     {
         "materia":"MATEMATICA",
         "imagen":"multimedia/materias/math.png",

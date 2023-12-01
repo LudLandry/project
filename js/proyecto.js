@@ -25,7 +25,7 @@ window.addEventListener('hashchange',()=>{
 		//IMPRIMIMOS LAS CARDS QUE NOS MOSTRARAN LAS MATERIAS DE LA ESCUELA.
 		$(document).ready(() => {
 			// Suponiendo que 'materias' contiene la lista de objetos
-			for (const materia of materias) {
+			for (const materia of materiasinfo) {
 				$(".materiasContainer").prepend(`
 					<div class="col">
 						<div class="card ${lightOnOff()} h-100" onclick='subjectInfo("${materia.materia}","${materia.descripcion}","${materia.profesor}","${materia.horario}", "${materia.imagen}","${materia.alt}")'>

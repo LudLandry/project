@@ -63,7 +63,7 @@ function deleteModal(){
      $('.modalContainer').remove();
 }
         //4.5 Funcion que almacena los valores de los inputs, y agrega una vista previa de los resultados del alumno a la pagina principal.
- 
+
 const almacenarValores = () =>{
     filledInput = 0; //se resetea el valor de filledInput
     //se suma la cantidad de inputs rellenados
