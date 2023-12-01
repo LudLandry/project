@@ -25,14 +25,14 @@ $('.switch').click(()=>{
         $('.switch').children('i').removeClass('fas fa-sun');
         $('.switch').children('i').addClass('fas fa-moon');
         let contenedorImagen = $('.registroAlumnos').find('img');
-        contenedorImagen.attr('src', "./multimedia/disconnected.png");
+        contenedorImagen.attr('src', "multimedia/disconnected.png");
     }else{
         localStorage.removeItem('luz');
         $('.switch').children('.link-text').text('Modo Día');
         $('.switch').children('i').removeClass('fas fa-moon');
         $('.switch').children('i').addClass('fas fa-sun');
         let contenedorImagen = $('.registroAlumnos').find('img');
-        contenedorImagen.attr('src', "./multimedia/disconnected-dark.png");
+        contenedorImagen.attr('src', "multimedia/disconnected-dark.png");
     }
 
 })

@@ -68,7 +68,7 @@ window.addEventListener('hashchange',()=>{
 		});
 	}else if(location.hash === "#/pages/info.html"){
 		//ACA MOSTRAMOS LA INFO DE CURSADA
-		let imagenPersonal = "/multimedia/fotoPersonal.jpg";
+		let imagenPersonal = "multimedia/fotoPersonal.jpg";
 		app.html(`<div class="h1container">
 					<h1 class='materiasH1 ${lightOnOff()}'>Datos Personales</h1>
 	  			  </div>
@@ -92,8 +92,8 @@ if($('.upsPic').hasClass('light')){
 let listaAlumnos = [];
 
 //PAGINA 'ALUMNOS' (MAIN PAGE)
-let upsPicLightMode = "./multimedia/disconnected.png";
-let upsPicDarkMode = "./multimedia/disconnected-dark.png";
+let upsPicLightMode = "multimedia/disconnected.png";
+let upsPicDarkMode = "multimedia/disconnected-dark.png";
 let upsPicUrl = $('body').hasClass('light') ? upsPicLightMode : upsPicDarkMode;
 
 // 1.3. IMPRIMIMOS LO QUE TENEMOS GUARDADO EN EL LOCALSTORAGE (OBJETIVO: IMPRIMIR EL REGISTRO DE ALUMNOS EN PANTALLA)

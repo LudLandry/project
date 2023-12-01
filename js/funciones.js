@@ -158,8 +158,8 @@ const addDeleteClass = ()=>{
         $('header').show();
         //Arregla un bug que generaba la imagen de ups por cada vez que se clickeaba eliminar registro.
         if ($('.ups').length <= 0) {
-            let upsPicLightMode = "./multimedia/disconnected.png";
-            let upsPicDarkMode = "./multimedia/disconnected-dark.png";
+            let upsPicLightMode = "multimedia/disconnected.png";
+            let upsPicDarkMode = "multimedia/disconnected-dark.png";
             $('.registroAlumnos').append(`<div>
                                             <div class='ups'>
                                                 <img src="${$('body').hasClass('light') ? upsPicLightMode : upsPicDarkMode}" class="upsPic"/>
