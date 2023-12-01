@@ -1,4 +1,4 @@
-[
+let profesores = [
 {
     "nombre":"Jose Fernandez",
     "materia":"Profesor de Historia",

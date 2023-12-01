@@ -20,26 +20,25 @@ window.addEventListener('hashchange',()=>{
 			<!-- CARDS DE LAS MATERIAS -->
 			<div class="row row-cols-1 row-cols-md-3 g-4 materiasContainer" id='cardsContainer'></div>`);
 		
-		//EN ESTE JSON SE ENCUENTRA INFORMACION SOBRE LAS MATERIAS (Nombre,foto,alt) PARA RELLENAR LAS CARDS
-		const URLGET = "/data/materias.json";
+		//EN MATERIAS DE LA CARPETA DATA SE ENCUENTRA INFORMACION SOBRE LAS MATERIAS (Nombre,foto,alt) PARA RELLENAR LAS CARDS
+		
 		//IMPRIMIMOS LAS CARDS QUE NOS MOSTRARAN LAS MATERIAS DE LA ESCUELA.
-		$(document).ready(() => { 
-			$.get(URLGET, function (respuesta, estado) {
-				if(estado === "success"){
-					let misDatos = respuesta;
-					for (const dato of misDatos) {
-							$(".materiasContainer").prepend(`<div class="col">
-							<div class="card ${lightOnOff()} h-100" onclick='subjectInfo("${dato.materia}","${dato.descripcion}","${dato.profesor}","${dato.horario}", "${dato.imagen}","${dato.alt}")'>
-								<img src="${dato.imagen}" class="card-img-top" alt="${dato.alt}">
-								<div class="card-body">
-									<h5 class="card-title">${dato.materia}</h5>
-								</div>
+		$(document).ready(() => {
+			// Suponiendo que 'materias' contiene la lista de objetos
+			for (const materia of materias) {
+				$(".materiasContainer").prepend(`
+					<div class="col">
+						<div class="card ${lightOnOff()} h-100" onclick='subjectInfo("${materia.materia}","${materia.descripcion}","${materia.profesor}","${materia.horario}", "${materia.imagen}","${materia.alt}")'>
+							<img src="${materia.imagen}" class="card-img-top" alt="${materia.alt}">
+							<div class="card-body">
+								<h5 class="card-title">${materia.materia}</h5>
 							</div>
-						</div>`);
-					}  
-				}
-			});
+						</div>
+					</div>
+				`);
+			}
 		});
+		
 
 	}else if(location.hash === "#/pages/profesores.html"){
 		//1.2 EN ESTA SECCION SE MUESTRAN LOS PROFESORES DE LA ESCUELA
@@ -47,33 +46,26 @@ window.addEventListener('hashchange',()=>{
 						<h1 class='materiasH1 ${lightOnOff()}'>CONÓCE A LOS PROFESORES</h1>
 					  </div>
 					  <div class="row row-cols-1 row-cols-md-3 g-4 profesoresContainer" id='cardsContainer'></div>`)
-		//AQUÍ ENCONTRAMOS INFORMACION PARA RELLENAR LAS CARDS DE LOS PROFESORES
-		const URLGET = "/data/profesores.json";
+		//EN LA CARPETA DATA ENCONTRAMOS INFORMACION PARA RELLENAR LAS CARDS DE LOS PROFESORES
 		//IMPRIMIMOS LA INFORMACION EN FORMATO DE CARD
 		$(document).ready(() => { 
-			$.get(URLGET, function (respuesta, estado) {
-				if(estado === "success"){
-				let misDatos = respuesta;
-				for (const dato of misDatos) {
-					
-						$(".profesoresContainer").prepend(`
-						<div class="col">
-							  <div class="card ${lightOnOff()} h-100" onclick='teachersInfo("${dato.nombre}","${dato.materia}","${dato.horario}","${dato.fotoUrl}","${dato.edad}","${dato.contact}")'>
-								<img src="${dato.fotoUrl}" class="card-img-top" alt="Foto de Profesor de Escuela">
-								<div class="card-body">
-									  <h5 class="card-title">${dato.nombre}</h5>
-									  <p class="card-text">${dato.materia}</p>
-								   </div>
-								<div class="card-footer">
-									  <small class="text-muted">${dato.uptade}</small>
-								</div>
-							  </div>
+			for (const profesor of profesores) {
+				$(".profesoresContainer").prepend(`
+					<div class="col">
+						<div class="card ${lightOnOff()} h-100" onclick='teachersInfo("${profesor.nombre}","${profesor.materia}","${profesor.horario}","${profesor.fotoUrl}","${profesor.edad}","${profesor.contact}")'>
+							<img src="${profesor.fotoUrl}" class="card-img-top" alt="Foto de Profesor de Escuela">
+							<div class="card-body">
+								<h5 class="card-title">${profesor.nombre}</h5>
+								<p class="card-text">${profesor.materia}</p>
 							</div>
-						`);
-							  }  
-						  }
-					  });
-				  });
+							<div class="card-footer">
+								<small class="text-muted">${profesor.uptade}</small>
+							</div>
+						</div>
+					</div>
+				`);
+			}
+		});
 	}else if(location.hash === "#/pages/info.html"){
 		//ACA MOSTRAMOS LA INFO DE CURSADA
 		let imagenPersonal = "/multimedia/fotoPersonal.jpg";
